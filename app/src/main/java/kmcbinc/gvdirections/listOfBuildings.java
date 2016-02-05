@@ -37,3 +37,5 @@ public class listOfBuildings extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
+// this is a comment
