@@ -20,7 +20,6 @@ public class listOfBuildings extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_list_of_buildings, menu);
         return true;
-        /////
     }
 
     @Override
