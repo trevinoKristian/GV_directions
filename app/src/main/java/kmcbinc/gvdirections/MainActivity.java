@@ -50,14 +50,10 @@ public class MainActivity extends ActionBarActivity {
         acronyms.add("LTT");
         acronyms.add("MAK");
         acronyms.add("MAN");
-        acronyms.add("MUR");
-        acronyms.add("NMR");
         acronyms.add("PAC");
         acronyms.add("PAD");
         acronyms.add("SH");
         acronyms.add("STU");
-
-
 
         recycler = (RecyclerView)findViewById(R.id.recView);
 
