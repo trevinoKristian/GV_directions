@@ -16,19 +16,36 @@ import java.util.ArrayList;
 public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private ArrayList<String> dataSource;
+    AcronymSelectedListener acronymListen;
 
-    public AcronymAdapter (ArrayList<String> acronyms){
+    public AcronymAdapter (ArrayList<String> acronyms, AcronymSelectedListener tmp){
 
         dataSource = acronyms;
+        acronymListen = tmp;
     }
 
-    private class AcronymHolder extends RecyclerView.ViewHolder {
+    private class AcronymHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView output;
         public AcronymHolder(View itemView) {
             super(itemView);
             output = (TextView)itemView.findViewById(R.id.myacronym);
+
+            //gives each acronym an OnClickListener
+            output.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+
+            TextView t = (TextView)v; /* v is the argument of OnClick */
+            acronymListen.onWordSelected(t.getText().toString());
+
+        }
+    }
+
+    public interface AcronymSelectedListener {
+        void onWordSelected (String w);
     }
 
     @Override

@@ -8,11 +8,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*******************************************************************
+ * This app gives directions to Grand Valley buildings
+ *
+ * @author Kristian Trevino
+ * @author Morgan Oneka
+ * @author Chris DesRosiers
+ * @author Brandon Marshall
+ *
+ * @version 2/22/16
+ *
+ ********************************************************************/
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements AcronymAdapter.AcronymSelectedListener{
 
     private ArrayList<String> acronyms;
     private RecyclerView recycler;
@@ -60,7 +72,7 @@ public class MainActivity extends ActionBarActivity {
         mymanager = new LinearLayoutManager(this);
         recycler.setLayoutManager (mymanager);
 
-        myadapter = new AcronymAdapter(acronyms);
+        myadapter = new AcronymAdapter(acronyms, this);
         recycler.setAdapter(myadapter);
     }
 
@@ -85,6 +97,18 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * this method will be envoked by the the AcronymAdapter when the user selects a list item
+     */
+
+    @Override
+    public void onWordSelected(String w) {
+
+        /*temporary message to show that the acronym is clickable, it will eventually be
+        replaced with an Intent for the BuldingInfoActivity*/
+        Toast.makeText(MainActivity.this, "This acronym is clickable :)", Toast.LENGTH_SHORT).show();
     }
 }
 
