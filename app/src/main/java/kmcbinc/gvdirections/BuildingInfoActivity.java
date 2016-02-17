@@ -59,7 +59,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
         buildingDescs.add("food, meeting rooms, lgbt resources, veterans area, 20/20 desk");
         buildingDescs.add("science labs, the marketplace (bookstore, food)");
         buildingDescs.add("sports fields and tracks");
-        buildingDescs.add("classrooms   ");
+        buildingDescs.add("classrooms");
         buildingDescs.add("books, meeting rooms, argo tea, IT");
         buildingDescs.add("classrooms");
         buildingDescs.add("classrooms");
