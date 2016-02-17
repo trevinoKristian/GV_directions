@@ -1,9 +1,13 @@
 package kmcbinc.gvdirections;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -71,6 +75,65 @@ public class BuildingInfoActivity extends ActionBarActivity {
         buildingDescs.add("classrooms, science labs, chemistry tutoring");
         buildingDescs.add("library, study space");
         buildingDescs.add("student services");
+
+        // gets the info we sent it from main activity
+        Intent intent = getIntent();
+        String acronym = intent.getStringExtra("acr");
+
+
+        // the index is the location in the arraylist where the relevant info is
+        // for example AuSable is index 0 bc it and its description are first
+        int index = 0;
+        switch (acronym){
+            case "ASH": index = 0; break;
+            case "BH": index = 1; break;
+            case "CAC": index = 2; break;
+            case "CDC": index = 3; break;
+            case "COM": index = 4; break;
+            case "CON": index = 5; break;
+            case "FH": index = 6; break;
+            case "HON": index = 7; break;
+            case "HRY": index = 8; break;
+            case "JHZ": index = 9; break;
+            case "KC": index = 10; break;
+            case "KHS": index = 11; break;
+            case "KTB": index = 12; break;
+            case "LHH": index = 13; break;
+            case "LIB": index = 14; break;
+            case "LMH": index = 15; break;
+            case "LOH": index = 16; break;
+            case "LSH": index = 17; break;
+            case "LTT": index = 18; break;
+            case "MAK": index = 19; break;
+            case "MAN": index = 20; break;
+            case "PAC": index = 21; break;
+            case "PAD": index = 22; break;
+            case "SH": index = 23; break;
+            case "STU": index = 24; break;
+        }
+
+        // sets the title & desc equal to appropriate values
+        ((TextView)findViewById(R.id.buildingTitle)).setText(buildingNames.get(index));
+        ((TextView)findViewById(R.id.buildingDesc)).setText(buildingDescs.get(index));
+
+        // when user selects "get directions", it will take them to the directions activity
+        Button button = (Button)findViewById(R.id.getDirections);
+
+        final String name = buildingNames.get(index);
+        button.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+
+                        Intent i = new Intent(getApplicationContext(), Directions_Activity.class);
+
+                        // it will give the directions activity the name of the building
+                        i.putExtra("acr", name);
+
+                        BuildingInfoActivity.this.startActivity(i);
+                    }
+                }
+        );
+
     }
 
 
@@ -78,6 +141,8 @@ public class BuildingInfoActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_building_info, menu);
+
+
         return true;
     }
 
