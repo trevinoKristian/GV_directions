@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
 
         /*temporary message to show that the acronym is clickable, it will eventually be
         replaced with an Intent for the BuldingInfoActivity*/
-        Toast.makeText(MainActivity.this, "This acronym is clickable :)", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(MainActivity.this, "This acronym is clickable :)", Toast.LENGTH_SHORT).show();
 
         // i have no idea what i'm doing now. google has taken the wheel
         // http://www.androidhive.info/2011/08/how-to-switch-between-activities-in-android/
