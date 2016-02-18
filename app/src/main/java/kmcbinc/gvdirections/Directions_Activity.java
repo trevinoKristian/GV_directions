@@ -49,7 +49,13 @@ public class Directions_Activity extends FragmentActivity implements OnMapReadyC
         String provider = locationManager.getBestProvider(criteria, true);
 
         // Get Current Location
-        Location myLocation = locationManager.getLastKnownLocation(provider);
+        Location myLocation;
+        try {
+            myLocation = locationManager.getLastKnownLocation(provider);
+        } catch (SecurityException e){
+            myLocation = null;
+            // we might want to set a default location (like KC or something) but null is good for now
+        }
 
         // set map type
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
