@@ -1,6 +1,7 @@
 package kmcbinc.gvdirections;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -75,6 +77,12 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
 
         myadapter = new AcronymAdapter(acronyms, this);
         recycler.setAdapter(myadapter);
+
+        // this should update the font of the title & "select building* text
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+        ((TextView)findViewById(R.id.title)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.selectTitle)).setTypeface(custom_font);
+
     }
 
 

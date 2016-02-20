@@ -32,7 +32,6 @@ public class Directions_Activity extends FragmentActivity implements OnMapReadyC
         mapFragment.getMapAsync(this);
     }
 
-    /* code from: http://www.joellipman.com/articles/google/android/application-development/basic-android-app-using-google-maps-and-current-location.html */
     private void setUpMap() {
         mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker").snippet("Snippet"));
 
@@ -126,7 +125,6 @@ public class Directions_Activity extends FragmentActivity implements OnMapReadyC
         Iterator it = locLatLon.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            //System.out.println(pair.getKey() + " = " + pair.getValue());
             mMap.addMarker(new MarkerOptions().position((LatLng)pair.getValue()).title((String) pair.getKey()));
             it.remove(); // avoids a ConcurrentModificationException
         }

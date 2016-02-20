@@ -1,6 +1,7 @@
 package kmcbinc.gvdirections;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -63,31 +64,31 @@ public class BuildingInfoActivity extends ActionBarActivity {
         buildingNames.add("Student Services Building");
 
         buildingDescs = new ArrayList<String>();
-        buildingDescs.add("POD, classrooms");
-        buildingDescs.add("boats");
-        buildingDescs.add("art exhibit, classrooms");
-        buildingDescs.add("meeting areas");
-        buildingDescs.add("food");
-        buildingDescs.add("food, classrooms");
-        buildingDescs.add("rec center, classsrooms, rock climbing");
-        buildingDescs.add("classrooms, reading center, common area, mail room");
-        buildingDescs.add("computer labs, classrooms");
-        buildingDescs.add("disability services, payroll, human resources");
-        buildingDescs.add("food, meeting rooms, lgbt resources, veterans area, 20/20 desk");
-        buildingDescs.add("science labs, the marketplace (bookstore, food)");
-        buildingDescs.add("sports fields and tracks");
-        buildingDescs.add("classrooms");
-        buildingDescs.add("books, meeting rooms, argo tea, IT");
-        buildingDescs.add("classrooms");
-        buildingDescs.add("classrooms");
-        buildingDescs.add("classrooms");
-        buildingDescs.add("lecture halls, science exhibits");
-        buildingDescs.add("classrooms, math tutoring, stats tutoring, CIS labs, CIS success center, language resource center");
-        buildingDescs.add("lecture halls, IT help desk, computers");
-        buildingDescs.add("performance hall, practice rooms, classrooms");
-        buildingDescs.add("classrooms, science labs, chemistry tutoring");
-        buildingDescs.add("library, study space");
-        buildingDescs.add("student services");
+        buildingDescs.add("AuSable is one of the older buildings on campus. It houses many classrooms and faculty offices and is the home of the Psychology and Political Science departments. It also houses the ELS center. If you're hungry, AuSable also has a POD.");
+        buildingDescs.add("The Boat House is used to store nautical equipment.");
+        buildingDescs.add("Calder Art Center is GVSU's visual arts hub. Located inside are art studios of many kinds, and art exhibits.");
+        buildingDescs.add("The Cook DeWitt Center is used for large gatherings, including weddings. It is also where many of the campus religious clubs hold their meetings, and it is where Sunday mass is located.");
+        buildingDescs.add("The Commons building is a place for food. The top floor has Fresh and Einstein Bagels, and the bottom floor has Fuel.");
+        buildingDescs.add("The Connection is a building with both food and classrooms.");
+        buildingDescs.add("The Fieldhouse is the place to go for health. There is a pool, a rock climbing wall, and a recreation center. There are also many exercise science classes.");
+        buildingDescs.add("The Honors College is where most honors courses and some non-honors courses are taught. In addition to the classrooms, there is a common room with a piano, a reading room, a computer lab, and a mail room.");
+        buildingDescs.add("Henry Hall is the home of the Biomedical Sciences department. The first floor also has several computer labs where introductory CIS courses are often taught and where you can print things.");
+        buildingDescs.add("Zumberge Hall was originally GVSU's library, but now it is the home of many different things, including Payroll, Human Resources, and Disability Resources.");
+        buildingDescs.add("Kirkhof is the heart of GVSU, and there are many different interesting things inside. Many clubs have their meetings in its many meeting rooms, and large gatherings often call the large Grand River Room their home. There are many places to eat, including Subway and Panda Express, and there is also a POD. The 20/20 desk is located on the first floor. There are many other places inside, including the Veteran's Area, the LGBT resources center, and the Student Organization Center.");
+        buildingDescs.add("Kindschi Hall is one of the newest additions to GVSU. Inside are many classrooms and laboratories. It is also connected to the Marketplace, which is the home of the bookstore, Starbucks, and Which Wich.");
+        buildingDescs.add("The Kelly Family Sports Center is home to many of GVSU's indoor tracks and fields.");
+        buildingDescs.add("Lake Huron Hall is one of the original buildings here at GVSU. It has many classrooms inside.");
+        buildingDescs.add("Mary Idema Pew is the Allendale campus's library. Obviously, there are books, but there is also much more. There are meeting rooms you can rent for group meetings, hundreds of computers, and many places to sit and study. If you're hungry, thirsty, or in need of some caffeine, Argo Tea is located on the first floor.");
+        buildingDescs.add("Lake Michigan Hall is full of classrooms.");
+        buildingDescs.add("Lake Ontario Hall is a building full of classrooms and offices.");
+        buildingDescs.add("Lake Superior Hall is the home of many communications and photography classes.");
+        buildingDescs.add("The Loutit Lecture Halls are where many large introductory science courses hold their lectures. When there are important guest speakers on campus, they will often hold their talks in the Loutit Lecture Halls. Also located in this area are many science exhibits and pieces of artwork.");
+        buildingDescs.add("Mackinac Hall is one of GVSU's oldest buildings. Notorious for its complex layout, it is home to many different departments, including Math, CIS, Statistics, and History. There are several computer labs, a POD for food, and many places around to sit and do work. If you need help in your classes, there is also a Math tutoring center and a Stats tutoring center, as well as the CIS success center. There is also a POD if you are hungry.");
+        buildingDescs.add("Manitou Hall is home to one of GVSU's computer labs, with nearly the entire first floor comprising of rows of computer where you can do work and print things. The bottom floor houses many large lecture halls where large classes are taught and where introductory CIS courses give their final exams.");
+        buildingDescs.add("The Performing Arts Center is the headquarters of performance at GVSU. It is the home of the music, dance, and theater departments. There are practice rooms, faculty offices, and classrooms. It is also home to the Louis Armstrong Theater, where many performances are held.");
+        buildingDescs.add("Padnos is the home of many science classrooms and labs. There are also tutoring centers if you are struggling in your science classes, and faculty offices as well.");
+        buildingDescs.add("The Seidman House is a small library and provides a quiet environment for students to read and study in.");
+        buildingDescs.add("Student Services is home to, well, student services. Whether you need to pay off your tuition, buy a new student ID, talk to someone about a job, or get information for a friend looking to attend GVSU, this is the place. Anything and everything you need to know about life at GVSU can likely be found within these walls.");
 
         // gets the info we sent it from main activity
         Intent intent = getIntent();
@@ -95,7 +96,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
 
 
         // the index is the location in the arraylist where the relevant info is
-        // for example AuSable is index 0 bc it and its description are first
+        // for example AuSable is index 0 because its name and its description are firstin the arraylists
         index = 0;
         switch (acronym) {
             case "ASH":
@@ -187,6 +188,10 @@ public class BuildingInfoActivity extends ActionBarActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+        ((TextView)findViewById(R.id.buildingName)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.buildingDesc)).setTypeface(custom_font);
     }
 
     class Button_Clicker implements Button.OnClickListener
