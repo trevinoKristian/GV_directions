@@ -16,12 +16,19 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            resValue "string", "google_maps_key", "AIzaSyCfxJd7guSYIBdBoM3KCQvNjKFBBgZavPY"
+        }
+        release {
+            resValue "string", "google_maps_key", "AIzaSyCfxJd7guSYIBdBoM3KCQvNjKFBBgZavPY"
+        }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.9.5"
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'

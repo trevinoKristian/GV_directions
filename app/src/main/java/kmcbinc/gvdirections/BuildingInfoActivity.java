@@ -2,6 +2,7 @@ package kmcbinc.gvdirections;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,8 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -30,6 +34,21 @@ public class BuildingInfoActivity extends ActionBarActivity {
     private GoogleApiClient client;
     String acronym;
     int index;
+
+    public Drawable loadPhoto(String name) {
+
+        // load image
+        try {
+            // get input stream
+            InputStream ims = getAssets().open("photos/" + name + ".JPG");
+            // load image as Drawable
+            return Drawable.createFromStream(ims, null);
+        }
+        catch(IOException ex) {
+            return null;
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +107,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
         buildingDescs.add("The Performing Arts Center is the headquarters of performance at GVSU. It is the home of the music, dance, and theater departments. There are practice rooms, faculty offices, and classrooms. It is also home to the Louis Armstrong Theater, where many performances are held.");
         buildingDescs.add("Padnos is the home of many science classrooms and labs. There are also tutoring centers if you are struggling in your science classes, and faculty offices as well.");
         buildingDescs.add("The Seidman House is a small library and provides a quiet environment for students to read and study in.");
-        buildingDescs.add("Student Services is home to, well, student services. Whether you need to pay off your tuition, buy a new student ID, talk to someone about a job, or get information for a friend looking to attend GVSU, this is the place. Anything and everything you need to know about life at GVSU can likely be found within these walls.");
+        buildingDescs.add("Student Services is home to, well, student services. Whether you need to pay off part of your tuition, buy a new student ID, talk to someone about a job, or get information for a friend looking to attend GVSU, this is the place. Anything and everything you need to know about life at GVSU can likely be found within these walls.");
 
         // gets the info we sent it from main activity
         Intent intent = getIntent();
@@ -98,18 +117,22 @@ public class BuildingInfoActivity extends ActionBarActivity {
         // the index is the location in the arraylist where the relevant info is
         // for example AuSable is index 0 because its name and its description are firstin the arraylists
         index = 0;
+        ImageView img= (ImageView) findViewById(R.id.buildingPhoto);
         switch (acronym) {
             case "ASH":
                 index = 0;
+                img.setImageDrawable(loadPhoto("ASH"));
                 break;
             case "BH":
                 index = 1;
                 break;
             case "CAC":
                 index = 2;
+                img.setImageDrawable(loadPhoto("CLD"));
                 break;
             case "CDC":
                 index = 3;
+                img.setImageDrawable(loadPhoto("CDW"));
                 break;
             case "COM":
                 index = 4;
@@ -125,54 +148,69 @@ public class BuildingInfoActivity extends ActionBarActivity {
                 break;
             case "HRY":
                 index = 8;
+                img.setImageDrawable(loadPhoto("HENRY"));
                 break;
             case "JHZ":
                 index = 9;
+                img.setImageDrawable(loadPhoto("JHZ"));
                 break;
             case "KC":
                 index = 10;
+                img.setImageDrawable(loadPhoto("KC"));
                 break;
             case "KHS":
                 index = 11;
+                img.setImageDrawable(loadPhoto("KHS"));
                 break;
             case "KTB":
                 index = 12;
                 break;
             case "LHH":
                 index = 13;
+                img.setImageDrawable(loadPhoto("LHH"));
                 break;
             case "LIB":
                 index = 14;
+                img.setImageDrawable(loadPhoto("MIP"));
                 break;
             case "LMH":
                 index = 15;
+                img.setImageDrawable(loadPhoto("LMH"));
                 break;
             case "LOH":
                 index = 16;
+                img.setImageDrawable(loadPhoto("LOH"));
                 break;
             case "LSH":
                 index = 17;
+                img.setImageDrawable(loadPhoto("LSH"));
                 break;
             case "LTT":
                 index = 18;
                 break;
             case "MAK":
                 index = 19;
+                img.setImageDrawable(loadPhoto("MAK"));
                 break;
             case "MAN":
                 index = 20;
+                img.setImageDrawable(loadPhoto("MANITOU"));
                 break;
             case "PAC":
                 index = 21;
+                img.setImageDrawable(loadPhoto("PAC"));
                 break;
             case "PAD":
                 index = 22;
+                img.setImageDrawable(loadPhoto("PAD"));
                 break;
             case "SH":
                 index = 23;
+                img.setImageDrawable(loadPhoto("SEIDMAN"));
                 break;
             case "STU":
                 index = 24;
+                img.setImageDrawable(loadPhoto("STUDSERV"));
                 break;
         }
 
