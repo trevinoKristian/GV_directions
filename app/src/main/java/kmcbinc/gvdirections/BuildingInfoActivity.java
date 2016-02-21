@@ -278,7 +278,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+   /* @Override
     public void onStart() {
         super.onStart();
 
@@ -304,7 +304,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
+        /*Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
                 "BuildingInfo Page", // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
@@ -315,6 +315,6 @@ public class BuildingInfoActivity extends ActionBarActivity {
                 Uri.parse("android-app://kmcbinc.gvdirections/http/host/path")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
+        client.disconnect();*/
     }
-}
+

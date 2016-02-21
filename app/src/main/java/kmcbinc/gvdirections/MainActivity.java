@@ -121,12 +121,12 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
 
         // i have no idea what i'm doing now. google has taken the wheel
         // http://www.androidhive.info/2011/08/how-to-switch-between-activities-in-android/
-        Intent i = new Intent(getApplicationContext(), BuildingInfoActivity.class);
+        Intent i = new Intent(this, BuildingInfoActivity.class);
 
         // i know this will make the info accessible to the buildingInfoActivity ????
         i.putExtra("acr", w);
 
-        MainActivity.this.startActivity(i);
+        startActivity(i);
     }
 }
 
