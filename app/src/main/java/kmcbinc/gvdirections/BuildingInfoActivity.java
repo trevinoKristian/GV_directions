@@ -32,8 +32,8 @@ public class BuildingInfoActivity extends ActionBarActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    String acronym;
-    int index;
+    private String acronym;
+    private int index;
 
     public Drawable loadPhoto(String name) {
 
