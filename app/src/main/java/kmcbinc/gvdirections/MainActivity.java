@@ -16,7 +16,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /*******************************************************************
- * This app gives directions to Grand Valley buildings
+ * Main Activity for the application. Displays a list of building
+ * acronyms that can be selected by the user
  *
  * @author Kristian Trevino
  * @author Morgan Oneka
@@ -29,20 +30,52 @@ import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity implements AcronymAdapter.AcronymSelectedListener{
 
+    /** holds list of acrovyms */
     private ArrayList<String> acronyms;
+
+    /** RecyclerView widget */
     private RecyclerView recycler;
+
+    /** adapter for the RecyclerView */
     private RecyclerView.Adapter myadapter;
+
+    /** layout manager for the RecyclerView */
     private RecyclerView.LayoutManager mymanager;
 
+    /*******************************************************************
+     * Starts the activity
+     * @param savedInstanceState the state of the activity
+     *******************************************************************/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //calls the parent class constructor
         super.onCreate(savedInstanceState);
-        //removes title
-        /*requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+
+        //sets the xml
         setContentView(R.layout.activity_main);
 
+        //obtains a reference to the RecyclerView
+        recycler = (RecyclerView)findViewById(R.id.recView);
+
+        //sets the layout for the RecyclerView to a Linear Layout
+        mymanager = new LinearLayoutManager(this);
+        recycler.setLayoutManager (mymanager);
+
+        //attaches AcronymAdapter to the RecyclerView
+        myadapter = new AcronymAdapter(acronyms, this);
+        recycler.setAdapter(myadapter);
+
+        // changes the font of the title & "select building" text
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+
+        //obtains a reference to the TextView for the title
+        ((TextView)findViewById(R.id.title)).setTypeface(custom_font);
+
+        //obtains a reference to the TextView underneath the title
+        ((TextView)findViewById(R.id.selectTitle)).setTypeface(custom_font);
+
+        //instantiates and populates an ArrayList of building acronyms
         acronyms = new ArrayList<String>();
         acronyms.add("ASH");
         acronyms.add("BH");
@@ -70,34 +103,29 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
         acronyms.add("SH");
         acronyms.add("STU");
 
-        recycler = (RecyclerView)findViewById(R.id.recView);
-
-        mymanager = new LinearLayoutManager(this);
-        recycler.setLayoutManager (mymanager);
-
-        myadapter = new AcronymAdapter(acronyms, this);
-        recycler.setAdapter(myadapter);
-
-        // this should update the font of the title & "select building* text
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
-        ((TextView)findViewById(R.id.title)).setTypeface(custom_font);
-        ((TextView)findViewById(R.id.selectTitle)).setTypeface(custom_font);
-
     }
 
-
+    /*******************************************************************
+     * Creates an options menu to the action bar
+     * @param menu the menu
+     *******************************************************************/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
+        //inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main_activity, menu);
+
         return true;
     }
 
+    /*******************************************************************
+     * Handles action bar item clicks
+     * @param item the menu item selected
+     *******************************************************************/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
+        //gets item id
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -108,24 +136,20 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * this method will be envoked by the the AcronymAdapter when the user selects a list item
-     */
-
+    /*******************************************************************
+     * Passes data from Main Activity to BuildingInfoActivity
+     * @param acronym the building acronym
+     *******************************************************************/
     @Override
-    public void onWordSelected(String w) {
+    public void onWordSelected(String acronym) {
 
-        /*temporary message to show that the acronym is clickable, it will eventually be
-        replaced with an Intent for the BuldingInfoActivity*/
-        // Toast.makeText(MainActivity.this, "This acronym is clickable :)", Toast.LENGTH_SHORT).show();
-
-        // i have no idea what i'm doing now. google has taken the wheel
-        // http://www.androidhive.info/2011/08/how-to-switch-between-activities-in-android/
+        //creates an intent to pass data from the Main Activity to the BuildingInfoActivity
         Intent i = new Intent(this, BuildingInfoActivity.class);
 
-        // i know this will make the info accessible to the buildingInfoActivity ????
-        i.putExtra("acr", w);
+        //makes info accessible to the BuildingInfoActivity
+        i.putExtra("acr", acronym);
 
+        //passes data to BuildingInfoActivity
         startActivity(i);
     }
 }

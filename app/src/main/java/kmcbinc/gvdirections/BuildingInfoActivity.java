@@ -262,7 +262,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
                 img.setImageDrawable(loadPhoto("STUDSERV"));
                 break;
         }
-        
+
     }
 
     /********************************************************************
