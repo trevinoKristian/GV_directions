@@ -22,19 +22,39 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-
+/*******************************************************************
+ * Second activity for the application. Displays building information
+ * such as building name, picture, and description.
+ *
+ * @author Kristian Trevino
+ * @author Morgan Oneka
+ * @author Chris DesRosiers
+ * @author Brandon Marshall
+ *
+ * @version 2/22/16
+ *
+ ********************************************************************/
 public class BuildingInfoActivity extends ActionBarActivity {
 
+    /** holds list of building names  */
     private ArrayList<String> buildingNames;
+
+    /** holds list of building descriptions */
     private ArrayList<String> buildingDescs;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
+    /** the app indexing API */
     private GoogleApiClient client;
+
+    /** acronym of building */
     private String acronym;
+
+    /** the current index of the ArrayList */
     private int index;
 
+    /*******************************************************************
+     * Loads photo of building to be displayed
+     * @param name the name of the building
+     *******************************************************************/
     public Drawable loadPhoto(String name) {
 
         // load image
@@ -50,11 +70,40 @@ public class BuildingInfoActivity extends ActionBarActivity {
 
     }
 
+    /*******************************************************************
+     * Starts the activity
+     * @param savedInstanceState the state of the activity
+     *******************************************************************/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //calls the parent class constructor
         super.onCreate(savedInstanceState);
+
+        //sets the xml
         setContentView(R.layout.activity_building_info);
 
+        //obtains a reference to the TextView for the building name
+        ((TextView) findViewById(R.id.buildingName)).setText(buildingNames.get(index));
+
+        //obtains a reference to the TextView for the building description
+        ((TextView) findViewById(R.id.buildingDesc)).setText(buildingDescs.get(index));
+
+        //obtains a reference to the Button that will get directions
+        Button button = (Button) findViewById(R.id.getDirections);
+
+        //the name of the building at a specific index
+        final String name = buildingNames.get(index);
+
+        //creates the google API client
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        // changes the font of the text
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+        ((TextView)findViewById(R.id.buildingName)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.buildingDesc)).setTypeface(custom_font);
+
+        //instantiates and populates an ArrayList of building names
         buildingNames = new ArrayList<String>();
         buildingNames.add("AuSable Hall");
         buildingNames.add("Boathouse");
@@ -82,6 +131,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
         buildingNames.add("Seidman House");
         buildingNames.add("Student Services Building");
 
+        //instantiates and populates an ArrayList of building descriptions
         buildingDescs = new ArrayList<String>();
         buildingDescs.add("AuSable is one of the older buildings on campus. It houses many classrooms and faculty offices and is the home of the Psychology and Political Science departments. It also houses the ELS center. If you're hungry, AuSable also has a POD.");
         buildingDescs.add("The Boat House is used to store nautical equipment.");
@@ -109,10 +159,9 @@ public class BuildingInfoActivity extends ActionBarActivity {
         buildingDescs.add("The Seidman House is a small library and provides a quiet environment for students to read and study in.");
         buildingDescs.add("Student Services is home to, well, student services. Whether you need to pay off part of your tuition, buy a new student ID, talk to someone about a job, or get information for a friend looking to attend GVSU, this is the place. Anything and everything you need to know about life at GVSU can likely be found within these walls.");
 
-        // gets the info we sent it from main activity
+        // gets info from the Main Activity
         Intent intent = getIntent();
         acronym = intent.getStringExtra("acr");
-
 
         // the index is the location in the arraylist where the relevant info is
         // for example AuSable is index 0 because its name and its description are firstin the arraylists
@@ -213,40 +262,32 @@ public class BuildingInfoActivity extends ActionBarActivity {
                 img.setImageDrawable(loadPhoto("STUDSERV"));
                 break;
         }
-
-        // sets the title & desc equal to appropriate values
-        ((TextView) findViewById(R.id.buildingName)).setText(buildingNames.get(index));
-        ((TextView) findViewById(R.id.buildingDesc)).setText(buildingDescs.get(index));
-
-        // when user selects "get directions", it will take them to the directions activity
-        Button button = (Button) findViewById(R.id.getDirections);
-
-        final String name = buildingNames.get(index);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
-        ((TextView)findViewById(R.id.buildingName)).setTypeface(custom_font);
-        ((TextView)findViewById(R.id.buildingDesc)).setTypeface(custom_font);
+        
     }
 
+    /********************************************************************
+     * Defines what happens when user selects the "Get Directions" button
+     ********************************************************************/
     class Button_Clicker implements Button.OnClickListener
     {
+        /**********************************************************************
+         * Passes data from the BuildingInfoActivity to the Directions_Activity
+         * @param b the button selected
+         **********************************************************************/
         @Override
-        public void onClick(View v) {
+        public void onClick(View b) {
 
             // if the user clicks
-            if(((TextView) v).getText().toString().equals("getDirections"))
+            if(((TextView) b).getText().toString().equals("getDirections"))
             {
-                // Toast.makeText(v.getContext(), "Hello!! button Clicked", Toast.LENGTH_SHORT).show();
-
+                //creates an intent to pass data from the BuildingInfoActivity
+                //the Directions Activity
                 Intent launchme = new Intent(BuildingInfoActivity.this, Directions_Activity.class);
 
-                // it will give the directions activity the name of the building
+                // makes data accesible to the Directions Activity
                 launchme.putExtra("acr", buildingNames.get(index));
 
+                //passes data to the Directions Activity
                 BuildingInfoActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
@@ -254,20 +295,27 @@ public class BuildingInfoActivity extends ActionBarActivity {
     }
 
 
+    /*******************************************************************
+     * Creates an options menu to the action bar
+     * @param menu the menu
+     *******************************************************************/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_building_info, menu);
 
+        //inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_building_info, menu);
 
         return true;
     }
 
+    /*******************************************************************
+     * Handles action bar item clicks
+     * @param item the menu item selected
+     *******************************************************************/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
+        //gets item id
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -278,43 +326,5 @@ public class BuildingInfoActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-   /* @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "BuildingInfo Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://kmcbinc.gvdirections/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        /*Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "BuildingInfo Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://kmcbinc.gvdirections/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();*/
-    }
+}
 
