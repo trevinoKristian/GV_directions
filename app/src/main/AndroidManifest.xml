@@ -25,7 +25,7 @@
         </activity>
         <activity
             android:name=".BuildingInfoActivity"
-            android:label="@string/title_activity_building_info"></activity>
+            android:label="@string/title_activity_building_info" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -40,7 +40,7 @@
 
         <activity
             android:name=".Directions_Activity"
-            android:label="@string/title_activity_directions_"></activity>
+            android:label="@string/title_activity_directions_" />
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -49,7 +49,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".ChooseTaskActivity"></activity>
+        <activity android:name=".ChooseTaskActivity" />
+        <activity
+            android:name=".ChooseTermActivity"
+            android:label="@string/title_activity_choose_term"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
