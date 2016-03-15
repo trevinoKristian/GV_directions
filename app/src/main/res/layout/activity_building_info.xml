@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="kmcbinc.gvdirections.BuildingInfoActivity"
-    android:background="#2a2a2a">
+    android:background="#c3e8eb">
 
     <TextView
         android:text="Building Information"
@@ -16,7 +16,7 @@
         android:textSize="30sp"
         android:gravity="center"
         android:id="@+id/buildingName"
-        android:textColor="#fff"/>
+        android:textColor="#000"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="This is where the building information is going to go. aldkfjalsdk jafl asjdf laskdfj "
         android:id="@+id/buildingDesc"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:layout_below="@+id/buildingName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
