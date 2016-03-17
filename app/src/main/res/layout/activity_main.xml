@@ -39,17 +39,5 @@
         android:layout_alignParentRight="true"
         android:textColor="#ffffff"/>
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accronyms"
-        android:id="@+id/box1"
-        android:layout_above="@+id/recView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:enabled="true"
-        android:checked="true"
-        android:clickable="true" />
-
 
 </RelativeLayout>
