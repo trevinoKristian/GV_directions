@@ -9,13 +9,68 @@ import android.widget.TextView;
 
 public class ChooseTaskActivity extends AppCompatActivity {
 
+    Button buttonOne;
+    Button buttonTwo;
+    Button buttonThree;
+    Button buttonFour;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_task);
+
+        buttonOne = (Button) findViewById(R.id.whatIsBuilding);
+        buttonTwo = (Button) findViewById(R.id.howToGetHere);
+        buttonThree = (Button) findViewById(R.id.whereCanFind);
+        buttonFour = (Button) findViewById(R.id.whatDoesThisMean);
+
+        buttonOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent launchme = new Intent(ChooseTaskActivity.this, MainActivity.class);
+
+                ChooseTaskActivity.this.startActivity(launchme);
+                startActivity (launchme);
+            }
+        });
+
+        buttonTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent launchme = new Intent(ChooseTaskActivity.this, MainActivity.class);
+
+                ChooseTaskActivity.this.startActivity(launchme);
+                startActivity (launchme);
+            }
+        });
+
+        buttonThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent launchme = new Intent(ChooseTaskActivity.this, ChooseTermActivity.class);
+
+                ChooseTaskActivity.this.startActivity(launchme);
+                startActivity (launchme);
+            }
+        });
+
+        buttonFour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent launchme = new Intent(ChooseTaskActivity.this, DictionaryActivity.class);
+
+                ChooseTaskActivity.this.startActivity(launchme);
+                startActivity (launchme);
+            }
+        });
+
     }
 
-    class Button_Clicker implements Button.OnClickListener
+    /*class Button_Clicker implements Button.OnClickListener
     {
         @Override
         public void onClick(View v) {
@@ -58,5 +113,5 @@ public class ChooseTaskActivity extends AppCompatActivity {
                 startActivity (launchme);
             }
         }
-    }
+    }*/
 }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="#0065a4"
     tools:context="kmcbinc.gvdirections.DictionaryActivity">
 
     <android.support.design.widget.AppBarLayout
