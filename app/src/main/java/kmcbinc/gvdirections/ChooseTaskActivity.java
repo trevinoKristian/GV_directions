@@ -21,7 +21,7 @@ public class ChooseTaskActivity extends AppCompatActivity {
         public void onClick(View v) {
 
             // if the user clicks
-            if(((TextView) v).getText().toString().equals("whatIsBuilding"))
+            if(((TextView) v).getText().toString().contains("Building"))
             {
                 // Toast.makeText(v.getContext(), "Hello!! button Clicked", Toast.LENGTH_SHORT).show();
 
@@ -30,7 +30,7 @@ public class ChooseTaskActivity extends AppCompatActivity {
                 ChooseTaskActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
-            else if(((TextView) v).getText().toString().equals("howToGetHere"))
+            else if(((TextView) v).getText().toString().contains("GetHere"))
             {
                 // Toast.makeText(v.getContext(), "Hello!! button Clicked", Toast.LENGTH_SHORT).show();
 
@@ -39,7 +39,7 @@ public class ChooseTaskActivity extends AppCompatActivity {
                 ChooseTaskActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
-            else if(((TextView) v).getText().toString().equals("whereCanFind"))
+            else if(((TextView) v).getText().toString().contains("Find"))
             {
                 // Toast.makeText(v.getContext(), "Hello!! button Clicked", Toast.LENGTH_SHORT).show();
 
@@ -48,7 +48,7 @@ public class ChooseTaskActivity extends AppCompatActivity {
                 ChooseTaskActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
-            else if(((TextView) v).getText().toString().equals("whatDoesThisMean"))
+            else if(((TextView) v).getText().toString().contains("Mean"))
             {
                 // Toast.makeText(v.getContext(), "Hello!! button Clicked", Toast.LENGTH_SHORT).show();
 

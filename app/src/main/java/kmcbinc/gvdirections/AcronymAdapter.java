@@ -33,12 +33,12 @@ public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     /*******************************************************************
      * Constructor initializes variables
      * @param acronyms the list of building acronyms
-     * @param listen listener for acronym selection
+     * @param tmp listener for acronym selection
      *******************************************************************/
-    public AcronymAdapter (ArrayList<String> acronyms, AcronymSelectedListener listen){
+    public AcronymAdapter (ArrayList<String> acronyms, AcronymSelectedListener tmp){
 
         dataSource = acronyms;
-        acronymListen = listen;
+        acronymListen = tmp;
     }
 
     /*******************************************************************
@@ -68,12 +68,12 @@ public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         /*******************************************************************
          * Gets acronym text and converts it to a string when user selects
          * the acronym
-         * @param acro the acronym selected
+         * @param v the acronym selected
          *******************************************************************/
         @Override
-        public void onClick(View acro) {
-            TextView acron = (TextView)acro;
-            acronymListen.onWordSelected(acron.getText().toString());
+        public void onClick(View v) {
+            TextView t = (TextView)v;
+            acronymListen.onWordSelected(t.getText().toString());
 
         }
     }
@@ -88,10 +88,10 @@ public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     /*******************************************************************
      * Creates a new instance of the View Holder
      * @param viewGroup the layout view
-     * @param t the view type
+     * @param i the view type
      *******************************************************************/
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int t) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
 
         //keeps a cached copy of all the inflated views
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell,
@@ -122,5 +122,6 @@ public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemCount() {
         return dataSource.size();
+        //return dataSource == null ? 0 : dataSource.size();
     }
 }

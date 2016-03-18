@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
  * @version 2/22/16
  *
  ********************************************************************/
-
+//public class MainActivity extends AppCompatActivity implements AcronymAdapter.AcronymSelectedListener{
 public class MainActivity extends ActionBarActivity implements AcronymAdapter.AcronymSelectedListener{
 
     /** holds list of acrovyms */
