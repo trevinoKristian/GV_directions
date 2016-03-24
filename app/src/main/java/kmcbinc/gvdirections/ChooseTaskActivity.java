@@ -39,7 +39,7 @@ public class ChooseTaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent launchme = new Intent(ChooseTaskActivity.this, MainActivity.class);
+                Intent launchme = new Intent(ChooseTaskActivity.this, MapsActivity.class);
 
                 ChooseTaskActivity.this.startActivity(launchme);
                 startActivity (launchme);
