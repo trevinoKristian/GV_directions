@@ -63,19 +63,6 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
         mymanager = new LinearLayoutManager(this);
         recycler.setLayoutManager (mymanager);
 
-        //attaches AcronymAdapter to the RecyclerView
-        myadapter = new AcronymAdapter(acronyms, this);
-        recycler.setAdapter(myadapter);
-
-        // changes the font of the title & "select building" text
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
-
-        //obtains a reference to the TextView for the title
-        ((TextView)findViewById(R.id.title)).setTypeface(custom_font);
-
-        //obtains a reference to the TextView underneath the title
-        ((TextView)findViewById(R.id.selectTitle)).setTypeface(custom_font);
-
         //instantiates and populates an ArrayList of building acronyms
         acronyms = new ArrayList<String>();
         acronyms.add("ASH");
@@ -103,6 +90,21 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
         acronyms.add("PAD");
         acronyms.add("SH");
         acronyms.add("STU");
+
+
+        //attaches AcronymAdapter to the RecyclerView
+        myadapter = new AcronymAdapter(acronyms, this);
+        recycler.setAdapter(myadapter);
+
+        // changes the font of the title & "select building" text
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+
+        //obtains a reference to the TextView for the title
+        ((TextView)findViewById(R.id.title)).setTypeface(custom_font);
+
+        //obtains a reference to the TextView underneath the title
+        ((TextView)findViewById(R.id.selectTitle)).setTypeface(custom_font);
+
 
     }
 

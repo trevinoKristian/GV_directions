@@ -36,7 +36,6 @@ public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      * @param tmp listener for acronym selection
      *******************************************************************/
     public AcronymAdapter (ArrayList<String> acronyms, AcronymSelectedListener tmp){
-
         dataSource = acronyms;
         acronymListen = tmp;
     }
@@ -122,6 +121,5 @@ public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemCount() {
         return dataSource.size();
-        //return dataSource == null ? 0 : dataSource.size();
     }
 }
