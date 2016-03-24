@@ -233,13 +233,85 @@ public class MapsActivity extends FragmentActivity implements
      */
     private void setUpMap() {
 
-        LatLng mak = new LatLng(42.966068,-85.886243);
-        mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(mak));
+        //LatLng mak = new LatLng(42.966068,-85.886243);
+        //mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
 
-        LatLng kirk =new LatLng(42.96315,-85.88872);
-        mMap.addMarker(new MarkerOptions().position(kirk).title("Kirkoff Center"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(kirk));
+
+        //LatLng kirk =new LatLng(42.96315,-85.88872);
+        //mMap.addMarker(new MarkerOptions().position(kirk).title("Kirkoff Center"));
+
+        LatLng AuS = new LatLng(42.963312, -85.885452);
+        mMap.addMarker(new MarkerOptions().position(AuS).title("AuSable Hall"));
+
+        LatLng Boat = new LatLng(42.9699,-85.877954);
+        mMap.addMarker(new MarkerOptions().position(Boat).title("Boathouse"));
+
+        LatLng Cald = new LatLng(42.961305,-85.883006);
+        mMap.addMarker(new MarkerOptions().position(Cald).title("Calder Art Center"));
+
+        LatLng Cook = new LatLng(42.964052,-85.888348);
+        mMap.addMarker(new MarkerOptions().position(Cook).title("Cook-DeWitt Center"));
+
+        LatLng Common = new LatLng(42.96608, -85.886714);
+        mMap.addMarker(new MarkerOptions().position(Common).title("Commons Building"));
+
+        LatLng Connect = new LatLng(42.959911, -85.888439);
+        mMap.addMarker(new MarkerOptions().position(Connect).title("The Connection"));
+
+        LatLng Field = new LatLng(42.967063,-85.889812);
+        mMap.addMarker(new MarkerOptions().position(Field).title("Fieldhouse"));
+
+        LatLng Honor = new LatLng(42.96016, -85.88635);
+        mMap.addMarker(new MarkerOptions().position(Honor).title("Honors College"));
+
+        LatLng mak = new LatLng(42.964816, -85.888464);
+        mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
+
+        LatLng Zum = new LatLng(42.962844,-85.886693);
+        mMap.addMarker(new MarkerOptions().position(Zum).title("Zumberge"));
+
+        LatLng kirk = new LatLng(42.96315,-85.88872);
+        mMap.addMarker(new MarkerOptions().position(kirk).title("Kirkhof Center"));
+
+        LatLng ScienceHall = new LatLng(42.966212,-85.888526);
+        mMap.addMarker(new MarkerOptions().position(ScienceHall).title("P. Kindschi Hall of Science"));
+
+        LatLng Kelly = new LatLng(42.966919,-85.892345);
+        mMap.addMarker(new MarkerOptions().position(Kelly).title("Kelly Family Sports Center"));
+
+        LatLng LakeHuron = new LatLng(42.962601,-85.885285);
+        mMap.addMarker(new MarkerOptions().position(LakeHuron).title("Lake Huron Hall"));
+
+        LatLng Library = new LatLng(42.963143, -85.889662);
+        mMap.addMarker(new MarkerOptions().position(Library).title("Mary Idema Pew Library"));
+
+        LatLng LakeMichigan = new LatLng(42.961298, -85.886208);
+        mMap.addMarker(new MarkerOptions().position(LakeMichigan).title("Lake Michigan Hall"));
+
+        LatLng LakeOntario = new LatLng(42.9612,-85.88516);
+        mMap.addMarker(new MarkerOptions().position(LakeOntario).title("Lake Ontario Hall"));
+
+        LatLng LakeSuperior = new LatLng(42.962032,-85.886458);
+        mMap.addMarker(new MarkerOptions().position(LakeSuperior).title("Lake Superior Hall"));
+
+        LatLng Loutit = new LatLng(42.965126,-85.888271);
+        mMap.addMarker(new MarkerOptions().position(Loutit).title("Loutit Lecture Halls"));
+
+        LatLng Man = new LatLng(42.966131,-85.887305);
+        mMap.addMarker(new MarkerOptions().position(Man).title("Manitou Hall"));
+
+        LatLng Pac = new LatLng(42.9612,-85.888088);
+        mMap.addMarker(new MarkerOptions().position(Pac).title("Performing Arts Center"));
+
+        LatLng Pad = new LatLng(42.965267,-85.887176);
+        mMap.addMarker(new MarkerOptions().position(Pad).title("Padnos Hall"));
+
+        LatLng Seid = new LatLng(42.962168,-85.885559);
+        mMap.addMarker(new MarkerOptions().position(Seid).title("Seidman House"));
+
+        LatLng StudentServ = new LatLng(42.964453,-85.888703);
+        mMap.addMarker(new MarkerOptions().position(StudentServ).title("Student Services Building"));
+
     }
 
     @Override

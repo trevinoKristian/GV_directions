@@ -19,6 +19,7 @@
         android:id="@+id/textView3"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:textColor="#fff" />
 
     <Button
@@ -28,7 +29,9 @@
         android:id="@+id/whatIsBuilding"
         android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -37,7 +40,9 @@
         android:id="@+id/howToGetHere"
         android:layout_below="@+id/whatIsBuilding"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/whatIsBuilding" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignEnd="@+id/whatIsBuilding"
+        android:layout_alignRight="@+id/whatIsBuilding"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -46,7 +51,9 @@
         android:id="@+id/whereCanFind"
         android:layout_below="@+id/howToGetHere"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/howToGetHere" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignEnd="@+id/howToGetHere"
+        android:layout_alignRight="@+id/howToGetHere"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -55,7 +62,9 @@
         android:id="@+id/whatDoesThisMean"
         android:layout_below="@+id/whereCanFind"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -64,7 +73,8 @@
         android:id="@+id/button"
         android:layout_below="@+id/whatDoesThisMean"
         android:layout_alignEnd="@+id/whatDoesThisMean"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/whatDoesThisMean"
+        android:layout_alignLeft="@+id/whatDoesThisMean"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -73,5 +83,7 @@
         android:id="@+id/button2"
         android:layout_below="@+id/button"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 </RelativeLayout>

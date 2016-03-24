@@ -17,7 +17,7 @@ public class ChooseTermActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_term);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+/*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +26,7 @@ public class ChooseTermActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
     }
 
 }
