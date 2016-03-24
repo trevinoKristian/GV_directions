@@ -37,7 +37,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        tools:listitem="@android:layout/simple_list_item_1" />
 
 
 </RelativeLayout>

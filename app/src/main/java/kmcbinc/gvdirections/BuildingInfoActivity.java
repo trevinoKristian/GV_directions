@@ -3,7 +3,6 @@ package kmcbinc.gvdirections;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,9 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
@@ -215,7 +212,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
         }
 
         // sets the title & desc equal to appropriate values
-        ((TextView) findViewById(R.id.buildingName)).setText(buildingNames.get(index));
+        ((TextView) findViewById(R.id.theWord)).setText(buildingNames.get(index));
         ((TextView) findViewById(R.id.buildingDesc)).setText(buildingDescs.get(index));
 
         // when user selects "get directions", it will take them to the directions activity
@@ -228,7 +225,7 @@ public class BuildingInfoActivity extends ActionBarActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
-        ((TextView)findViewById(R.id.buildingName)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.theWord)).setTypeface(custom_font);
         ((TextView)findViewById(R.id.buildingDesc)).setTypeface(custom_font);
     }
 
