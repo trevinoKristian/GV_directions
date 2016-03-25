@@ -7,42 +7,38 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="kmcbinc.gvdirections.DictionaryActivity"
+    tools:context="kmcbinc.gvdirections.DictActivity"
     android:background="#0065a4">
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="What term do you want to look up?"
-        android:id="@+id/textView5"
+        android:text="Search for a Term"
+        android:id="@+id/dsearchTitle"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:textColor="#fff" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/textView5"
+        android:id="@+id/dsearchField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="93dp"
+        android:layout_below="@+id/dsearchTitle"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:text="Search for term here" />
+        android:text="what do you want to look for?" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
-        android:id="@+id/searchButton"
-        android:layout_below="@+id/editText2"
+        android:id="@+id/dsearchButton"
+        android:layout_below="@+id/dsearchField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
-
+        android:layout_alignRight="@+id/dsearchField"
+        android:layout_alignEnd="@+id/dsearchField" />
 </RelativeLayout>

@@ -71,7 +71,7 @@ public class ChooseTaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent launchme = new Intent(ChooseTaskActivity.this, DictionaryActivity.class);
+                Intent launchme = new Intent(ChooseTaskActivity.this, DictActivity.class);
 
                 ChooseTaskActivity.this.startActivity(launchme);
                 startActivity (launchme);
