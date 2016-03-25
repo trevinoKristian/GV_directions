@@ -1,32 +1,20 @@
 package kmcbinc.gvdirections;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-
-import kmcbinc.gvdirections.R;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class ChooseTermActivity extends AppCompatActivity {
+
+    Button foodButton;
+    EditText e;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_term);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
-    }
+        setContentView(R.layout.activity_choose_term2);
 
+        foodButton = (Button) this.findViewById(R.id.foodButton);
+    }
 }

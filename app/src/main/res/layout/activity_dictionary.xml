@@ -19,6 +19,7 @@
         android:id="@+id/textView5"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:textColor="#fff" />
 
     <EditText
@@ -26,18 +27,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText2"
         android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="93dp"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="#ffffff"
-        android:textColor="#000" />
+        android:text="Search for term here" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
-        android:id="@+id/button3"
+        android:id="@+id/button2"
         android:layout_below="@+id/editText2"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5" />
+
 </RelativeLayout>

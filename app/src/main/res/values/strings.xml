@@ -12,4 +12,6 @@
 
     <string name="title_activity_start_up_screen">StartUpScreen</string>
     <string name="title_activity_maps">Map</string>
+    <string name="button3">Search</string>
+    <string name="editText2">enter the word you\'d like to look up</string>
 </resources>
