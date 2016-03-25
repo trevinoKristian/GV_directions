@@ -10,6 +10,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -233,12 +234,8 @@ public class MapsActivity extends FragmentActivity implements
      */
     private void setUpMap() {
 
-        //LatLng mak = new LatLng(42.966068,-85.886243);
-        //mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
-
-
-        //LatLng kirk =new LatLng(42.96315,-85.88872);
-        //mMap.addMarker(new MarkerOptions().position(kirk).title("Kirkoff Center"));
+        LatLng mak = new LatLng(42.966068,-85.886243);
+        mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
 
         LatLng AuS = new LatLng(42.963312, -85.885452);
         mMap.addMarker(new MarkerOptions().position(AuS).title("AuSable Hall"));
@@ -264,8 +261,8 @@ public class MapsActivity extends FragmentActivity implements
         LatLng Honor = new LatLng(42.96016, -85.88635);
         mMap.addMarker(new MarkerOptions().position(Honor).title("Honors College"));
 
-        LatLng mak = new LatLng(42.964816, -85.888464);
-        mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
+        LatLng henry = new LatLng(42.964816, -85.888464);
+        mMap.addMarker(new MarkerOptions().position(henry).title("Henry Hall"));
 
         LatLng Zum = new LatLng(42.962844,-85.886693);
         mMap.addMarker(new MarkerOptions().position(Zum).title("Zumberge"));
@@ -335,10 +332,17 @@ public class MapsActivity extends FragmentActivity implements
         //mMap.animateCamera(CameraUpdateFactory.newCameraPosition(myPosition));
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(campus));
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolPos,17 ));
-        if (myMarker == null) /* if we don't have a marker yet, create and add */
-            myMarker = mMap.addMarker(new MarkerOptions().position(geoPos));
-        else
-            myMarker.setPosition (geoPos);
+        if (myMarker == null){ /* if we don't have a marker yet, create and add */
+            myMarker = mMap.addMarker(new MarkerOptions()
+                    .position(geoPos)
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                    //.icon(BitmapDescriptorFactory.fromResource(R.drawable.gv_logo))
+                    .title("YOU ARE HERE"));
+        myMarker.showInfoWindow();
+    }else{
+        myMarker.setPosition(geoPos);
+        //myMarker.showInfoWindow();
+    }
     }
 
 }

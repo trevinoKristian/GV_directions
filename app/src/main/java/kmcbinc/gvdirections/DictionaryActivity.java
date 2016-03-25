@@ -33,6 +33,7 @@ public class DictionaryActivity extends AppCompatActivity {
 //            }
 //        });
 
+        /*
         buttonOne = (Button) this.findViewById(R.id.button2);
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +48,7 @@ public class DictionaryActivity extends AppCompatActivity {
                 //passes data to BuildingInfoActivity
                 startActivity(launchme);
             }
-        });
+        });  */
 
     }
 
