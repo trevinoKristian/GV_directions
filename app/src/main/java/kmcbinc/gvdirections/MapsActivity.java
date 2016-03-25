@@ -36,7 +36,11 @@ public class MapsActivity extends FragmentActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener{
 
+    private String BuildingName = "";
+
     private Marker myMarker;
+
+    private Marker buildingMarker;
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
@@ -69,6 +73,8 @@ public class MapsActivity extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        //Intent intent = getIntent();
+        //BuildingName = intent.getStringExtra("acr");
         setUpMapIfNeeded();
 
         if (savedInstanceState != null) {
@@ -139,7 +145,7 @@ public class MapsActivity extends FragmentActivity implements
         Log.i(TAG, "GoogleApiClient connected");
         // TODO: Start making API requests.
         LocationRequest req = new LocationRequest();
-        req.setInterval (1000); /* every 3 seconds */ //changed to 1000
+        req.setInterval (3000); /* every 3 seconds */
         req.setFastestInterval (1000); /* how fast our app can handle the notifications */
         req.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
@@ -234,81 +240,190 @@ public class MapsActivity extends FragmentActivity implements
      */
     private void setUpMap() {
 
-        LatLng mak = new LatLng(42.966068,-85.886243);
-        mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
+        Intent intent = getIntent();
+        BuildingName = intent.getStringExtra("acr");
 
-        LatLng AuS = new LatLng(42.963312, -85.885452);
-        mMap.addMarker(new MarkerOptions().position(AuS).title("AuSable Hall"));
+        if (BuildingName.equals("Mackinac Hall")) {
 
-        LatLng Boat = new LatLng(42.9699,-85.877954);
-        mMap.addMarker(new MarkerOptions().position(Boat).title("Boathouse"));
+            LatLng mak = new LatLng(42.966068, -85.886243);
+            buildingMarker = mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
+            //buildingMarker.showInfoWindow();
 
-        LatLng Cald = new LatLng(42.961305,-85.883006);
-        mMap.addMarker(new MarkerOptions().position(Cald).title("Calder Art Center"));
+        }else if (BuildingName.equals("AuSable Hall")) {
 
-        LatLng Cook = new LatLng(42.964052,-85.888348);
-        mMap.addMarker(new MarkerOptions().position(Cook).title("Cook-DeWitt Center"));
+            LatLng AuS = new LatLng(42.963312, -85.885452);
+            mMap.addMarker(new MarkerOptions().position(AuS).title("AuSable Hall"));
+        }else if (BuildingName.equals("Boathouse")) {
 
-        LatLng Common = new LatLng(42.96608, -85.886714);
-        mMap.addMarker(new MarkerOptions().position(Common).title("Commons Building"));
+            LatLng Boat = new LatLng(42.9699, -85.877954);
+            mMap.addMarker(new MarkerOptions().position(Boat).title("Boathouse"));
+        }else if (BuildingName.equals("Calder Art Center")) {
 
-        LatLng Connect = new LatLng(42.959911, -85.888439);
-        mMap.addMarker(new MarkerOptions().position(Connect).title("The Connection"));
+            LatLng Cald = new LatLng(42.961305, -85.883006);
+            mMap.addMarker(new MarkerOptions().position(Cald).title("Calder Art Center"));
+        }else if (BuildingName.equals("Cook-DeWitt Center")) {
 
-        LatLng Field = new LatLng(42.967063,-85.889812);
-        mMap.addMarker(new MarkerOptions().position(Field).title("Fieldhouse"));
+            LatLng Cook = new LatLng(42.964052, -85.888348);
+            mMap.addMarker(new MarkerOptions().position(Cook).title("Cook-DeWitt Center"));
+        }else if (BuildingName.equals("Commons Building")) {
 
-        LatLng Honor = new LatLng(42.96016, -85.88635);
-        mMap.addMarker(new MarkerOptions().position(Honor).title("Honors College"));
+            LatLng Common = new LatLng(42.96608, -85.886714);
+            mMap.addMarker(new MarkerOptions().position(Common).title("Commons Building"));
+        }else if (BuildingName.equals("The Connection")) {
 
-        LatLng henry = new LatLng(42.964816, -85.888464);
-        mMap.addMarker(new MarkerOptions().position(henry).title("Henry Hall"));
+            LatLng Connect = new LatLng(42.959911, -85.888439);
+            mMap.addMarker(new MarkerOptions().position(Connect).title("The Connection"));
+        }else if (BuildingName.equals("Fieldhouse")) {
 
-        LatLng Zum = new LatLng(42.962844,-85.886693);
-        mMap.addMarker(new MarkerOptions().position(Zum).title("Zumberge"));
+            LatLng Field = new LatLng(42.967063, -85.889812);
+            mMap.addMarker(new MarkerOptions().position(Field).title("Fieldhouse"));
+        }else if (BuildingName.equals("Honors College")) {
 
-        LatLng kirk = new LatLng(42.96315,-85.88872);
-        mMap.addMarker(new MarkerOptions().position(kirk).title("Kirkhof Center"));
+            LatLng Honor = new LatLng(42.96016, -85.88635);
+            mMap.addMarker(new MarkerOptions().position(Honor).title("Honors College"));
+        }else if (BuildingName.equals("Henry Hall")) {
 
-        LatLng ScienceHall = new LatLng(42.966212,-85.888526);
-        mMap.addMarker(new MarkerOptions().position(ScienceHall).title("P. Kindschi Hall of Science"));
+            LatLng henry = new LatLng(42.964816, -85.888464);
+            mMap.addMarker(new MarkerOptions().position(henry).title("Henry Hall"));
+        }else if (BuildingName.equals("Zumberge")) {
 
-        LatLng Kelly = new LatLng(42.966919,-85.892345);
-        mMap.addMarker(new MarkerOptions().position(Kelly).title("Kelly Family Sports Center"));
+            LatLng Zum = new LatLng(42.962844, -85.886693);
+            mMap.addMarker(new MarkerOptions().position(Zum).title("Zumberge"));
+        }else if (BuildingName.equals("Kirkhof Center")) {
 
-        LatLng LakeHuron = new LatLng(42.962601,-85.885285);
-        mMap.addMarker(new MarkerOptions().position(LakeHuron).title("Lake Huron Hall"));
+            LatLng kirk = new LatLng(42.96315, -85.88872);
+            mMap.addMarker(new MarkerOptions().position(kirk).title("Kirkhof Center"));
+        }else if (BuildingName.equals("P. Kindschi Hall of Science")) {
 
-        LatLng Library = new LatLng(42.963143, -85.889662);
-        mMap.addMarker(new MarkerOptions().position(Library).title("Mary Idema Pew Library"));
+            LatLng ScienceHall = new LatLng(42.966212, -85.888526);
+            mMap.addMarker(new MarkerOptions().position(ScienceHall).title("P. Kindschi Hall of Science"));
+        }else if (BuildingName.equals("Kelly Family Sports Center")) {
 
-        LatLng LakeMichigan = new LatLng(42.961298, -85.886208);
-        mMap.addMarker(new MarkerOptions().position(LakeMichigan).title("Lake Michigan Hall"));
+            LatLng Kelly = new LatLng(42.966919, -85.892345);
+            mMap.addMarker(new MarkerOptions().position(Kelly).title("Kelly Family Sports Center"));
+        }else if (BuildingName.equals("Lake Huron Hall")) {
 
-        LatLng LakeOntario = new LatLng(42.9612,-85.88516);
-        mMap.addMarker(new MarkerOptions().position(LakeOntario).title("Lake Ontario Hall"));
+            LatLng LakeHuron = new LatLng(42.962601, -85.885285);
+            mMap.addMarker(new MarkerOptions().position(LakeHuron).title("Lake Huron Hall"));
+        }else if (BuildingName.equals("Mary Idema Pew Library")) {
 
-        LatLng LakeSuperior = new LatLng(42.962032,-85.886458);
-        mMap.addMarker(new MarkerOptions().position(LakeSuperior).title("Lake Superior Hall"));
+            LatLng Library = new LatLng(42.963143, -85.889662);
+            mMap.addMarker(new MarkerOptions().position(Library).title("Mary Idema Pew Library"));
+        }else if (BuildingName.equals("Lake Michigan Hall")) {
 
-        LatLng Loutit = new LatLng(42.965126,-85.888271);
-        mMap.addMarker(new MarkerOptions().position(Loutit).title("Loutit Lecture Halls"));
+            LatLng LakeMichigan = new LatLng(42.961298, -85.886208);
+            mMap.addMarker(new MarkerOptions().position(LakeMichigan).title("Lake Michigan Hall"));
+        }else if (BuildingName.equals("Lake Ontario Hall")) {
 
-        LatLng Man = new LatLng(42.966131,-85.887305);
-        mMap.addMarker(new MarkerOptions().position(Man).title("Manitou Hall"));
+            LatLng LakeOntario = new LatLng(42.9612, -85.88516);
+            mMap.addMarker(new MarkerOptions().position(LakeOntario).title("Lake Ontario Hall"));
+        }else if (BuildingName.equals("Lake Superior Hall")) {
 
-        LatLng Pac = new LatLng(42.9612,-85.888088);
-        mMap.addMarker(new MarkerOptions().position(Pac).title("Performing Arts Center"));
+            LatLng LakeSuperior = new LatLng(42.962032, -85.886458);
+            mMap.addMarker(new MarkerOptions().position(LakeSuperior).title("Lake Superior Hall"));
+        }else if (BuildingName.equals("Loutit Lecture Halls")) {
 
-        LatLng Pad = new LatLng(42.965267,-85.887176);
-        mMap.addMarker(new MarkerOptions().position(Pad).title("Padnos Hall"));
+            LatLng Loutit = new LatLng(42.965126, -85.888271);
+            mMap.addMarker(new MarkerOptions().position(Loutit).title("Loutit Lecture Halls"));
+        }else if (BuildingName.equals("Manitou Hall")) {
 
-        LatLng Seid = new LatLng(42.962168,-85.885559);
-        mMap.addMarker(new MarkerOptions().position(Seid).title("Seidman House"));
+            LatLng Man = new LatLng(42.966131, -85.887305);
+            mMap.addMarker(new MarkerOptions().position(Man).title("Manitou Hall"));
+        }else if (BuildingName.equals("Performing Arts Center")) {
 
-        LatLng StudentServ = new LatLng(42.964453,-85.888703);
-        mMap.addMarker(new MarkerOptions().position(StudentServ).title("Student Services Building"));
+            LatLng Pac = new LatLng(42.9612, -85.888088);
+            mMap.addMarker(new MarkerOptions().position(Pac).title("Performing Arts Center"));
+        }else if (BuildingName.equals("Padnos Hall")) {
 
+            LatLng Pad = new LatLng(42.965267, -85.887176);
+            mMap.addMarker(new MarkerOptions().position(Pad).title("Padnos Hall"));
+        }else if (BuildingName.equals("Seidman House")) {
+
+            LatLng Seid = new LatLng(42.962168, -85.885559);
+            mMap.addMarker(new MarkerOptions().position(Seid).title("Seidman House"));
+        }else if (BuildingName.equals("Student Services Building")) {
+
+            LatLng StudentServ = new LatLng(42.964453, -85.888703);
+            mMap.addMarker(new MarkerOptions().position(StudentServ).title("Student Services Building"));
+
+        }else{
+
+            LatLng mak = new LatLng(42.966068, -85.886243);
+            mMap.addMarker(new MarkerOptions().position(mak).title("Mackinac Hall"));
+
+
+            LatLng AuS = new LatLng(42.963312, -85.885452);
+            mMap.addMarker(new MarkerOptions().position(AuS).title("AuSable Hall"));
+
+            LatLng Boat = new LatLng(42.9699, -85.877954);
+            mMap.addMarker(new MarkerOptions().position(Boat).title("Boathouse"));
+
+            LatLng Cald = new LatLng(42.961305, -85.883006);
+            mMap.addMarker(new MarkerOptions().position(Cald).title("Calder Art Center"));
+
+            LatLng Cook = new LatLng(42.964052, -85.888348);
+            mMap.addMarker(new MarkerOptions().position(Cook).title("Cook-DeWitt Center"));
+
+            LatLng Common = new LatLng(42.96608, -85.886714);
+            mMap.addMarker(new MarkerOptions().position(Common).title("Commons Building"));
+
+            LatLng Connect = new LatLng(42.959911, -85.888439);
+            mMap.addMarker(new MarkerOptions().position(Connect).title("The Connection"));
+
+            LatLng Field = new LatLng(42.967063, -85.889812);
+            mMap.addMarker(new MarkerOptions().position(Field).title("Fieldhouse"));
+
+            LatLng Honor = new LatLng(42.96016, -85.88635);
+            mMap.addMarker(new MarkerOptions().position(Honor).title("Honors College"));
+
+            LatLng henry = new LatLng(42.964816, -85.888464);
+            mMap.addMarker(new MarkerOptions().position(henry).title("Henry Hall"));
+
+            LatLng Zum = new LatLng(42.962844, -85.886693);
+            mMap.addMarker(new MarkerOptions().position(Zum).title("Zumberge"));
+
+            LatLng kirk = new LatLng(42.96315, -85.88872);
+            mMap.addMarker(new MarkerOptions().position(kirk).title("Kirkhof Center"));
+
+            LatLng ScienceHall = new LatLng(42.966212, -85.888526);
+            mMap.addMarker(new MarkerOptions().position(ScienceHall).title("P. Kindschi Hall of Science"));
+
+            LatLng Kelly = new LatLng(42.966919, -85.892345);
+            mMap.addMarker(new MarkerOptions().position(Kelly).title("Kelly Family Sports Center"));
+
+            LatLng LakeHuron = new LatLng(42.962601, -85.885285);
+            mMap.addMarker(new MarkerOptions().position(LakeHuron).title("Lake Huron Hall"));
+
+            LatLng Library = new LatLng(42.963143, -85.889662);
+            mMap.addMarker(new MarkerOptions().position(Library).title("Mary Idema Pew Library"));
+
+            LatLng LakeMichigan = new LatLng(42.961298, -85.886208);
+            mMap.addMarker(new MarkerOptions().position(LakeMichigan).title("Lake Michigan Hall"));
+
+            LatLng LakeOntario = new LatLng(42.9612, -85.88516);
+            mMap.addMarker(new MarkerOptions().position(LakeOntario).title("Lake Ontario Hall"));
+
+            LatLng LakeSuperior = new LatLng(42.962032, -85.886458);
+            mMap.addMarker(new MarkerOptions().position(LakeSuperior).title("Lake Superior Hall"));
+
+            LatLng Loutit = new LatLng(42.965126, -85.888271);
+            mMap.addMarker(new MarkerOptions().position(Loutit).title("Loutit Lecture Halls"));
+
+            LatLng Man = new LatLng(42.966131, -85.887305);
+            mMap.addMarker(new MarkerOptions().position(Man).title("Manitou Hall"));
+
+            LatLng Pac = new LatLng(42.9612, -85.888088);
+            mMap.addMarker(new MarkerOptions().position(Pac).title("Performing Arts Center"));
+
+            LatLng Pad = new LatLng(42.965267, -85.887176);
+            mMap.addMarker(new MarkerOptions().position(Pad).title("Padnos Hall"));
+
+            LatLng Seid = new LatLng(42.962168, -85.885559);
+            mMap.addMarker(new MarkerOptions().position(Seid).title("Seidman House"));
+
+            LatLng StudentServ = new LatLng(42.964453, -85.888703);
+            mMap.addMarker(new MarkerOptions().position(StudentServ).title("Student Services Building"));
+        }
     }
 
     @Override
@@ -336,7 +451,7 @@ public class MapsActivity extends FragmentActivity implements
             myMarker = mMap.addMarker(new MarkerOptions()
                     .position(geoPos)
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                    //.icon(BitmapDescriptorFactory.fromResource(R.drawable.gv_logo))
+                            //.icon(BitmapDescriptorFactory.fromResource(R.drawable.gv_logo))
                     .title("YOU ARE HERE"));
         myMarker.showInfoWindow();
     }else{

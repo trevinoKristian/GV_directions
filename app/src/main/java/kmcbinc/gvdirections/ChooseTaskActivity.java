@@ -32,6 +32,8 @@ public class ChooseTaskActivity extends AppCompatActivity {
         buttonThree = (Button) findViewById(R.id.whereCanFind);
         buttonFour = (Button) findViewById(R.id.whatDoesThisMean);
 
+        final String buildingName = "";
+
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +50,7 @@ public class ChooseTaskActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent launchme = new Intent(ChooseTaskActivity.this, MapsActivity.class);
-
+                launchme.putExtra("acr", buildingName);
                 ChooseTaskActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }

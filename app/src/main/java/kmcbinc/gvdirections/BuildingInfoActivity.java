@@ -217,6 +217,14 @@ public class BuildingInfoActivity extends ActionBarActivity {
 
         // when user selects "get directions", it will take them to the directions activity
         Button button = (Button) findViewById(R.id.getDirections);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BuildingInfoActivity.this, MapsActivity.class);
+                i.putExtra("acr", buildingNames.get(index));
+                startActivity(i);
+            }
+        });
 
         final String name = buildingNames.get(index);
 
