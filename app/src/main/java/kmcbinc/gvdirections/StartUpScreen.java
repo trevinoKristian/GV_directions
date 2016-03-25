@@ -3,6 +3,7 @@ package kmcbinc.gvdirections;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import kmcbinc.gvdirections.R;
 
@@ -35,6 +37,9 @@ public class StartUpScreen extends Activity {
             public void run() {
                 Intent i = new Intent(StartUpScreen.this, ChooseTaskActivity.class);
                 startActivity(i);
+                Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+                ((TextView)findViewById(R.id.textView)).setTypeface(custom_font);
+                ((TextView)findViewById(R.id.textView2)).setTypeface(custom_font);
                 finish();
             }
         }, TIME_OUT);

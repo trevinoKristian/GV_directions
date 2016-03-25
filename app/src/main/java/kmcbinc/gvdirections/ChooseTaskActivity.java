@@ -1,6 +1,7 @@
 package kmcbinc.gvdirections;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,13 @@ public class ChooseTaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_task);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+        ((TextView)findViewById(R.id.textView3)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.whatIsBuilding)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.howToGetHere)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.whereCanFind)).setTypeface(custom_font);
+        ((TextView)findViewById(R.id.whatDoesThisMean)).setTypeface(custom_font);
 
         buttonOne = (Button) findViewById(R.id.whatIsBuilding);
         buttonTwo = (Button) findViewById(R.id.howToGetHere);
