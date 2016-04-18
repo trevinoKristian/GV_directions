@@ -37,9 +37,6 @@ public class StartUpScreen extends Activity {
             public void run() {
                 Intent i = new Intent(StartUpScreen.this, ChooseTaskActivity.class);
                 startActivity(i);
-                Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
-                ((TextView)findViewById(R.id.textView)).setTypeface(custom_font);
-                ((TextView)findViewById(R.id.textView2)).setTypeface(custom_font);
                 finish();
             }
         }, TIME_OUT);
