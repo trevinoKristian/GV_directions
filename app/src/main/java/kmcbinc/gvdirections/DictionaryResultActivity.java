@@ -26,7 +26,7 @@ public class DictionaryResultActivity extends AppCompatActivity {
 
         createMap();
 
-        if (wordDef.containsKey(word)){
+        if (wordDef.containsKey(word.toUpperCase())){
             ((TextView) findViewById(R.id.theWord)).setText(word);
             ((TextView) findViewById(R.id.wordDefinition)).setText(wordDef.get(word));
         } else{
@@ -41,9 +41,9 @@ public class DictionaryResultActivity extends AppCompatActivity {
 
     private void createMap(){
         wordDef = new HashMap<String,String>();
-        wordDef.put("2020 Desk", "2020 is a help desk, located in Kirkhof, where people answer any questions you may have.");
-        wordDef.put("The Wrecking Ball", "The 'wrecking ball' is a pendulum located near Henry Hall and Padnos. It looks like a wrecking ball and was made famous when students made videos of themselves riding it to the song \"Wrecking Ball\" by Miley Cyrus");
-        wordDef.put("T. Haas", "T. Haas is the president of GVSU. He is revered as an important part of GVSU.");
-        wordDef.put("Debit Dollars", "Debit Dollars, also known as dining dollars, are the dollars that you are able to spend at any food-dispensing estabilishment on campus, from places that usually grant meals (like Fresh) to places like Starbucks and Einstein's Bagels.");
+        wordDef.put("2020 DESK", "2020 is a help desk, located in Kirkhof, where people answer any questions you may have.");
+        wordDef.put("THE WRECKING BALL", "The 'wrecking ball' is a pendulum located near Henry Hall and Padnos. It looks like a wrecking ball and was made famous when students made videos of themselves riding it to the song \"Wrecking Ball\" by Miley Cyrus");
+        wordDef.put("T. HAAS", "T. Haas is the president of GVSU. He is revered as an important part of GVSU.");
+        wordDef.put("DEBIT DOLLARS", "Debit Dollars, also known as dining dollars, are the dollars that you are able to spend at any food-dispensing estabilishment on campus, from places that usually grant meals (like Fresh) to places like Starbucks and Einstein's Bagels.");
     }
 }
