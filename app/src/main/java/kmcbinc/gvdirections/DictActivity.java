@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 public class DictActivity extends AppCompatActivity {
 
-    Button srch;
-    EditText edit;
+    Button button;
+    EditText input;
     TextView title;
 
     @Override
@@ -20,8 +20,8 @@ public class DictActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dict);
 
-        srch = (Button) this.findViewById(R.id.dsearchButton);
-        edit = (EditText) this.findViewById(R.id.dsearchField);
+        button = (Button) this.findViewById(R.id.dsearchButton);
+        input = (EditText) this.findViewById(R.id.dsearchField);
         title = (TextView) this.findViewById(R.id.dsearchTitle);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
@@ -29,12 +29,12 @@ public class DictActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.dsearchField)).setTypeface(custom_font);
         ((TextView)findViewById(R.id.dsearchTitle)).setTypeface(custom_font);
 
-        srch.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent launchme = new Intent(DictActivity.this, DictionaryResultActivity.class);
-                launchme.putExtra("searchTerm", edit.getText().toString());
+                launchme.putExtra("searchTerm", input.getText().toString());
                 DictActivity.this.startActivity(launchme);
                 startActivity(launchme);
             }

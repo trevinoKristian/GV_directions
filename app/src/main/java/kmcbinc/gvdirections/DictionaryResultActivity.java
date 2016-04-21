@@ -8,11 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class DictionaryResultActivity extends AppCompatActivity {
 
+    //private TextView title;
+    //private TextView description;
     Button buttonOne;
     Map<String,String> wordDef;
 
@@ -21,14 +25,21 @@ public class DictionaryResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dictionary_results);
 
+        //title = (TextView)findViewById(R.id.theWord);
+        //description = (TextView)findViewById(R.id.wordDefinition);
+
         Intent i = getIntent();
         String word = i.getStringExtra("searchTerm");
+
+        //title.setText(word);
+        //description.setText("yo dawg");*/
+
 
         createMap();
 
         if (wordDef.containsKey(word.toUpperCase())){
-            ((TextView) findViewById(R.id.theWord)).setText(word);
-            ((TextView) findViewById(R.id.wordDefinition)).setText(wordDef.get(word));
+            ((TextView) findViewById(R.id.theWord)).setText(word.toUpperCase());
+            ((TextView) findViewById(R.id.wordDefinition)).setText(wordDef.get(word.toUpperCase()));
         } else{
             ((TextView) findViewById(R.id.theWord)).setText(word);
             ((TextView) findViewById(R.id.wordDefinition)).setText("No definition found.");
@@ -39,6 +50,7 @@ public class DictionaryResultActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.wordDefinition)).setTypeface(custom_font);
     }
 
+
     private void createMap(){
         wordDef = new HashMap<String,String>();
         wordDef.put("2020 DESK", "2020 is a help desk, located in Kirkhof, where people answer any questions you may have.");
@@ -46,4 +58,6 @@ public class DictionaryResultActivity extends AppCompatActivity {
         wordDef.put("T. HAAS", "T. Haas is the president of GVSU. He is revered as an important part of GVSU.");
         wordDef.put("DEBIT DOLLARS", "Debit Dollars, also known as dining dollars, are the dollars that you are able to spend at any food-dispensing estabilishment on campus, from places that usually grant meals (like Fresh) to places like Starbucks and Einstein's Bagels.");
     }
+
 }
+

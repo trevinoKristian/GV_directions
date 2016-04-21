@@ -101,6 +101,7 @@ end of comment (this line can be erased)
             android:label="@string/title_activity_maps" />
         <activity android:name=".ChooseTermResultActivity" />
         <activity android:name=".DictActivity"></activity>
+        <activity android:name=".DictionaryResultActivity"></activity>
     </application>
 
 </manifest>
