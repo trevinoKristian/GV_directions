@@ -115,6 +115,10 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
 
         recycler.setAdapter(myadapter);
         //end my stuff
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+
+        ((TextView)findViewById(R.id.title)).setTypeface(custom_font);
     }
 
     @Override
@@ -146,6 +150,8 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
             case ("Manitou 2nd Floor"): i.putExtra("acr", "MAN");
             case ("Mackinac"): i.putExtra ("acr", "MAK");
             case ("Library"): i.putExtra("acr","LIB");
+
+            default: i.putExtra("acr","STU");
         }
 
 
