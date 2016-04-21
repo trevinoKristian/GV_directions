@@ -1,5 +1,6 @@
 package kmcbinc.gvdirections;
 
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,10 @@ public class AcronymAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
             //gives each acronym an OnClickListener
             output.setOnClickListener(this);
+
+            //Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
+            Typeface custom_font = Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/font1.ttf");
+            this.output.setTypeface(custom_font);
         }
 
         /*******************************************************************

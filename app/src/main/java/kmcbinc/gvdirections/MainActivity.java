@@ -104,8 +104,6 @@ public class MainActivity extends ActionBarActivity implements AcronymAdapter.Ac
 
         //obtains a reference to the TextView underneath the title
         ((TextView)findViewById(R.id.selectTitle)).setTypeface(custom_font);
-
-
     }
 
     /*******************************************************************
