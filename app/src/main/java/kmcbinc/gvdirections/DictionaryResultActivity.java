@@ -53,10 +53,17 @@ public class DictionaryResultActivity extends AppCompatActivity {
 
     private void createMap(){
         wordDef = new HashMap<String,String>();
-        wordDef.put("2020 DESK", "2020 is a help desk, located in Kirkhof, where people answer any questions you may have.");
+        wordDef.put("2020 DESK", "20/20 is a help desk, located in Kirkhof, where people answer any questions you may have.");
+        wordDef.put("20/20 DESK", "20/20 is a help desk, located in Kirkhof, where people answer any questions you may have.");
         wordDef.put("THE WRECKING BALL", "The 'wrecking ball' is a pendulum located near Henry Hall and Padnos. It looks like a wrecking ball and was made famous when students made videos of themselves riding it to the song \"Wrecking Ball\" by Miley Cyrus");
         wordDef.put("T. HAAS", "T. Haas is the president of GVSU. He is revered as an important part of GVSU.");
         wordDef.put("DEBIT DOLLARS", "Debit Dollars, also known as dining dollars, are the dollars that you are able to spend at any food-dispensing estabilishment on campus, from places that usually grant meals (like Fresh) to places like Starbucks and Einstein's Bagels.");
+        wordDef.put("NANDIGAM", "Professor who should give us 100 for this release.");
+        wordDef.put("LIB", "Short for library.");
+        wordDef.put("EOS", "Computer lab in A1-171, with CIS department keycards required for entry");
+        wordDef.put("LATE NIGHT", "Dining option located at Kleiner and Connection that lasts from 10-12");
+
+
     }
 
 }

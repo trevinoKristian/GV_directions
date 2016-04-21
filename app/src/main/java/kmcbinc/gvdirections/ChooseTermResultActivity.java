@@ -43,12 +43,12 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
         String term = intent.getStringExtra("term");
 
         ((TextView) findViewById(R.id.title)).setText(term);
-        /*((TextView) findViewById(R.id.locationsText)).setText((String) chooseTerm.get(term));
-
+//        ((TextView) findViewById(R.id.locationsText)).setText((String) chooseTerm.get(term));
+//
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/font1.ttf");
-        ((TextView)findViewById(R.id.theTermText)).setTypeface(custom_font);
-        ((TextView)findViewById(R.id.locationsText)).setTypeface(custom_font);
-        */
+        ((TextView)findViewById(R.id.title)).setTypeface(custom_font);
+//        ((TextView)findViewById(R.id.locationsText)).setTypeface(custom_font);
+
 
 
         recycler = (RecyclerView) findViewById(R.id.recView);
@@ -157,6 +157,8 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
             i.putExtra("acr", "MAN");
         }if(term.equals("Mackinac")){
             i.putExtra("acr", "MAK");
+        }if(term.equals("The Library")){
+            i.putExtra("acr","LIB");
         }if(term.equals("Library")){
             i.putExtra("acr","LIB");
         }
