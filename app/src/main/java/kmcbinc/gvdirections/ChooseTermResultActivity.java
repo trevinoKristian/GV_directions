@@ -50,7 +50,7 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
         ((TextView)findViewById(R.id.locationsText)).setTypeface(custom_font);
         */
 
-        //my stuff
+
         recycler = (RecyclerView) findViewById(R.id.recView);
         mymanager = new LinearLayoutManager(this);
         recycler.setLayoutManager(mymanager);
@@ -114,14 +114,53 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
         }
 
         recycler.setAdapter(myadapter);
-        //end my stuff
+
     }
 
     @Override
     public void onWordSelected(String term) {
 
         Intent i = new Intent(this, BuildingInfoActivity.class);
-
+        if (term.equals("Commons")) {
+            i.putExtra("acr", "COM");
+        }if(term.equals("Mackinac POD")){
+            i.putExtra("acr", "MAK");
+        }if(term.equals("AuSable POD")){
+            i.putExtra("acr", "ASH");
+        }if(term.equals("The Connection")){
+            i.putExtra("acr", "CON");
+        }if(term.equals("Kirkhof")){
+            i.putExtra("acr", "KC");
+        }if(term.equals("MIP Library Argo")){
+            i.putExtra("acr", "LIB");
+        }if(term.equals("The Marketplace")){
+            i.putExtra("acr","KHS");
+        }if(term.equals("POD @ Mackinac")){
+            i.putExtra("acr", "MAK");
+        }if(term.equals("StarBucks @ The Marketplace")){
+            i.putExtra("acr","KHS");
+        }if(term.equals("POD @ The Connection")){
+            i.putExtra("acr","CON");
+        }if(term.equals("JavaCity @ Kirkhof")){
+            i.putExtra("acr","KC");
+        }if(term.equals("Student Services")){
+            i.putExtra("acr","STU");
+        }if(term.equals("2020 @ Kirkhof")){
+            i.putExtra("acr", "KC");
+        }if(term.equals("The IT Help Desk")){
+            i.putExtra("acr", "LIB");
+        }if(term.equals("The Knowledge Market @ MIP")){
+            i.putExtra("acr", "LIB");
+        }if(term.equals("Women's Center")){
+            i.putExtra("acr", "KC");
+        }if(term.equals("Manitou 2nd Floor")){
+            i.putExtra("acr", "MAN");
+        }if(term.equals("Mackinac")){
+            i.putExtra("acr", "MAK");
+        }if(term.equals("Library")){
+            i.putExtra("acr","LIB");
+        }
+        /*
         switch (term){
             case ("Commons"): i.putExtra("acr", "COM");
             case ("Mackinac POD"): i.putExtra("acr","MAK");
@@ -147,7 +186,7 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
             case ("Mackinac"): i.putExtra ("acr", "MAK");
             case ("Library"): i.putExtra("acr","LIB");
         }
-
+        */
 
         startActivity(i);
     }
