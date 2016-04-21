@@ -13,6 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -423,7 +424,10 @@ public class MapsActivity extends FragmentActivity implements
 
             LatLng StudentServ = new LatLng(42.964453, -85.888703);
             mMap.addMarker(new MarkerOptions().position(StudentServ).title("Student Services Building"));
+
         }
+
+
     }
 
     @Override
@@ -446,7 +450,11 @@ public class MapsActivity extends FragmentActivity implements
 /* fill in the blanks with the name of your GoogleMap object */
         //mMap.animateCamera(CameraUpdateFactory.newCameraPosition(myPosition));
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(campus));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolPos,17 ));
+
+        //testing zoom on all markers
+        //LatLng bounds = new LatLngBounds.Builder().include(mak).include(Aus).include(Boat).build();
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50));
+
         if (myMarker == null){ /* if we don't have a marker yet, create and add */
             myMarker = mMap.addMarker(new MarkerOptions()
                     .position(geoPos)

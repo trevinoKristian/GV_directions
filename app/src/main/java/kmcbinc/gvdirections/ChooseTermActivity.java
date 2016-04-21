@@ -49,7 +49,7 @@ public class ChooseTermActivity extends AppCompatActivity {
 
                 Intent launchme = new Intent(ChooseTermActivity.this, ChooseTermResultActivity.class);
 
-                launchme.putExtra("term", "food");
+                launchme.putExtra("term", "Food");
                 ChooseTermActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
@@ -61,7 +61,7 @@ public class ChooseTermActivity extends AppCompatActivity {
 
                 Intent launchme = new Intent(ChooseTermActivity.this, ChooseTermResultActivity.class);
 
-                launchme.putExtra("term", "coffee");
+                launchme.putExtra("term", "Coffee");
                 ChooseTermActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
@@ -73,7 +73,7 @@ public class ChooseTermActivity extends AppCompatActivity {
 
                 Intent launchme = new Intent(ChooseTermActivity.this, ChooseTermResultActivity.class);
 
-                launchme.putExtra("term", "study");
+                launchme.putExtra("term", "Study Space");
                 ChooseTermActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
@@ -85,7 +85,7 @@ public class ChooseTermActivity extends AppCompatActivity {
 
                 Intent launchme = new Intent(ChooseTermActivity.this, ChooseTermResultActivity.class);
 
-                launchme.putExtra("term", "info");
+                launchme.putExtra("term", "Information");
                 ChooseTermActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
@@ -97,7 +97,7 @@ public class ChooseTermActivity extends AppCompatActivity {
 
                 Intent launchme = new Intent(ChooseTermActivity.this, ChooseTermResultActivity.class);
 
-                launchme.putExtra("term", "health");
+                launchme.putExtra("term", "Health Services");
                 ChooseTermActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
@@ -109,7 +109,7 @@ public class ChooseTermActivity extends AppCompatActivity {
 
                 Intent launchme = new Intent(ChooseTermActivity.this, ChooseTermResultActivity.class);
 
-                launchme.putExtra("term", "computer");
+                launchme.putExtra("term", "Computer Lab");
                 ChooseTermActivity.this.startActivity(launchme);
                 startActivity (launchme);
             }
@@ -121,7 +121,7 @@ public class ChooseTermActivity extends AppCompatActivity {
 
                 Intent launchme = new Intent(ChooseTermActivity.this, ChooseTermResultActivity.class);
 
-                launchme.putExtra("term", "printing");
+                launchme.putExtra("term", "Printing");
                 ChooseTermActivity.this.startActivity(launchme);
                 startActivity(launchme);
             }

@@ -1,35 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="kmcbinc.gvdirections.ChooseTermResultActivity"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".listOfBuildings"
     android:background="#0065a4">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:text = "Item Chosen"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/theTermText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#fff" />
+        android:id="@+id/title"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        />
 
-    <TextView
-        android:layout_width="wrap_content"
+
+
+    <android.support.v7.widget.RecyclerView
+        android:padding="30dp"
+        android:clipToPadding="false"
+        android:id="@+id/recView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/locationsText"
-        android:layout_below="@+id/theTermText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#fff" />
+        android:layout_below="@+id/title"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23dp"
+        android:textColor="#ffffff"
+        tools:listitem="@android:layout/simple_list_item_1" />
+
 
 </RelativeLayout>
