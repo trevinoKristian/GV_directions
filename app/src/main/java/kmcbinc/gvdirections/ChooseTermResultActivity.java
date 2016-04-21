@@ -56,7 +56,6 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
         recycler.setLayoutManager(mymanager);
 
         food = new ArrayList<String>();
-        food.add("Kleiner");
         food.add("Commons");
         food.add("Mackinac POD");
         food.add("AuSable POD");
@@ -66,7 +65,6 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
         food.add("The Marketplace");
 
         coffee = new ArrayList<String>();
-        coffee.add("JavaCity @ Kleiner");
         coffee.add("POD @ Mackinac");
         coffee.add("StarBucks @ The Marketplace");
         coffee.add("POD @ The Connection");
@@ -85,7 +83,6 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
 
 
         health = new ArrayList<String>();
-        health.add("Campus Health Center");
         health.add("Women's Center");
 
         computer = new ArrayList<String>();
@@ -119,26 +116,39 @@ public class ChooseTermResultActivity extends AppCompatActivity implements Acron
         recycler.setAdapter(myadapter);
         //end my stuff
     }
-/*
-    public void createHashMap(){
-        chooseTerm.put("food", "Kleiner \n\n Commons \n\n Mackinac POD \n\n " +
-                "AuSable POD \n\n The Connection \n\n Kirkhof \n\n MIP Library Argo \n\n" +
-                "The Marketplace");
-        chooseTerm.put("coffee", "JavaCity @ Kleiner \n\n POD @ Mackinac \n\n Starbucks @ The Marketplace\n\n" +
-                "POD @ The Connection \n\n JavaCity @ Kirkhof");
-        chooseTerm.put("study", "The Library\n\nKirkhof\n\nMackinac");
-        chooseTerm.put("info", "Student Services\n\n2020 @ Kirkhof\n\nThe IT Help Desk\n\nThe Knowledge Market @ MIP");
-        chooseTerm.put("health", "Campus Health Center\n\nWomen's Center");
-        chooseTerm.put("computer", "Manitou 2nd floor\n\nMackinac\n\nLibrary\n\nKirkhof");
-        chooseTerm.put("printing", "Manitou 2nd floor\n\nLibrary\n\nKirkhof");
-    }
-    */
 
     @Override
     public void onWordSelected(String term) {
 
         Intent i = new Intent(this, BuildingInfoActivity.class);
-        i.putExtra("acr", term);
+
+        switch (term){
+            case ("Commons"): i.putExtra("acr", "COM");
+            case ("Mackinac POD"): i.putExtra("acr","MAK");
+            case ("AuSable POD"): i.putExtra("acr", "ASH");
+            case ("The Connection"): i.putExtra("acr", "CON");
+            case ("Kirkhof"): i.putExtra("acr", "KC");
+            case ("MIP Library Argo"): i.putExtra("acr", "LIB");
+            case ("The Marketplace"): i.putExtra("acr","KHS");
+
+            case ("POD @ Mackinac"): i.putExtra("acr","MAK");
+            case ("StarBucks @ The Marketplace"): i.putExtra("acr","KHS");
+            case ("POD @ The Connection"): i.putExtra("acr","CON");
+            case ("JavaCity @ Kirkhof"): i.putExtra("acr","KC");
+
+            case ("Student Services"): i.putExtra("acr","STU");
+            case ("2020 @ Kirkhof"): i.putExtra("acr", "KC");
+            case ("The IT Help Desk"): i.putExtra("acr", "LIB");
+            case ("The Knowledge Market @ MIP"): i.putExtra("acr", "LIB");
+
+            case ("Women's Center"): i.putExtra("acr", "KC");
+
+            case ("Manitou 2nd Floor"): i.putExtra("acr", "MAN");
+            case ("Mackinac"): i.putExtra ("acr", "MAK");
+            case ("Library"): i.putExtra("acr","LIB");
+        }
+
+
         startActivity(i);
     }
 }
